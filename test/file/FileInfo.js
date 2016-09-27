@@ -15,7 +15,7 @@ describe('FileInfo', () => {
     });
 
     after((done) => {
-        common.delete(done);
+        common.clean(done);
     });
 
     it('should create instance successfully', (done) => {

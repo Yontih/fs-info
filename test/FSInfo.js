@@ -37,7 +37,7 @@ describe('FSInfo', () => {
     });
 
     after((done) => {
-        common.delete(done);
+        common.clean(done);
     });
 
     it('should throw already exists error', (done) => {

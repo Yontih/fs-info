@@ -28,7 +28,7 @@ module.exports = {
             }
         });
     },
-    delete: (cb) => {
+    clean: (cb) => {
         rimraf(TEST_DIRECTORY_NAME, (err) => {
             if (!err) {
                 console.log('test file deleted');
