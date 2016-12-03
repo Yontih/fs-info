@@ -8,6 +8,9 @@ const temp = require('temp');
 const common = require('./common');
 const FSInfo = require('../lib/FSInfo');
 
+const FileInfo = require('../index').FileInfo;
+const DirectoryInfo = require('../index').DirectoryInfo;
+
 chai.should();
 
 function testDelete(info) {
@@ -55,6 +58,17 @@ describe('FSInfo', () => {
 
             done();
         });
+    });
+
+    it('should detect the item type and create new instance', (done) => {
+
+        let fsFileItem =  FSInfo.detect(common.TEST_FILE_PATH);
+        let fsDirItem = FSInfo.detect(common.TEST_DIR_PATH);
+
+        fsFileItem.should.be.FileInfo;
+        fsDirItem.should.be.DirectoryInfo;
+
+        done();
     });
 
     describe('file', () => {
