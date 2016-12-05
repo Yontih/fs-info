@@ -4,8 +4,8 @@ const fse = require('fs-extra');
 const path = require('path');
 const rimraf = require('rimraf');
 
-const TEST_FILE_PATH = path.normalize('temp/test_file.json');
-const TEST_DIR_PATH = path.normalize('temp/test_dir');
+const TEST_FILE_PATH = path.normalize(__dirname + '/temp/test_file.json');
+const TEST_DIR_PATH = path.normalize(__dirname + '/temp/test_dir');
 let pathObj = path.parse(TEST_FILE_PATH);
 
 const TEST_FILE_NAME = pathObj.base;

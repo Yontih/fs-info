@@ -60,6 +60,20 @@ describe('FSInfo', () => {
         });
     });
 
+    it('should create json object', (done) => {
+        let info = new FSInfo(common.TEST_FILE_PATH);
+        let obj = info.toJSON();
+
+        Object.keys(obj).length.should.equal(6);
+        obj.should.have.property.name;
+        obj.should.have.property.size;
+        obj.should.have.property.sizeInBytes;
+        obj.should.have.property.root;
+        obj.should.have.property.exists;
+
+        done();
+    });
+
     it('should detect the item type and create new instance', (done) => {
 
         let fsFileItem =  FSInfo.detect(common.TEST_FILE_PATH);
@@ -77,7 +91,6 @@ describe('FSInfo', () => {
             let info = new FSInfo(common.TEST_FILE_PATH);
 
             info.exists.should.equal(true);
-            info.extension.should.equal('.json');
             info.name.should.equal(common.TEST_FILE_NAME);
             info.fullPath.should.equal(common.TEST_FILE_PATH);
 
@@ -88,7 +101,6 @@ describe('FSInfo', () => {
             let info = new FSInfo('not_exists.file');
 
             info.exists.should.equal(false);
-            info.extension.should.equal('.file');
             info.name.should.equal('not_exists.file');
 
             done();
