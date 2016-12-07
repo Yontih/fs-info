@@ -36,7 +36,8 @@ describe('FileInfo', () => {
         let info = new FileInfo(common.TEST_FILE_PATH);
         let obj = info.toJSON();
 
-        Object.keys(obj).length.should.equal(9);
+        Object.keys(obj).length.should.equal(10);
+        obj.should.have.property.fullPath;
         obj.should.have.property.name;
         obj.should.have.property.size;
         obj.should.have.property.sizeInBytes;

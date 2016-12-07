@@ -64,7 +64,8 @@ describe('FSInfo', () => {
         let info = new FSInfo(common.TEST_FILE_PATH);
         let obj = info.toJSON();
 
-        Object.keys(obj).length.should.equal(6);
+        Object.keys(obj).length.should.equal(7);
+        obj.should.have.property.fullPath;
         obj.should.have.property.name;
         obj.should.have.property.size;
         obj.should.have.property.sizeInBytes;
